@@ -10,6 +10,7 @@ class Student < InteractiveRecord
   end
 
   def self.table_name
+    self.class.pluralize.downcased
   end
 
   def self.column_names
