@@ -7,6 +7,10 @@ class InteractiveRecord
       self.send("#{key}=", value)
     end
   end
+
+  def self.table_name
+    self.to_s.pluralize.downcase
+  end
 end
 
 # attr_accessor :id, :name, :grade
