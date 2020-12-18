@@ -13,7 +13,7 @@ class InteractiveRecord
   end
 
   def self.column_names
-    sql = "pragma table_info('#{tabel_name}')"
+    sql = "pragma table_info('#{table_name}')"
     table = DB[:conn].execute(sql)
 
     column_names = []
