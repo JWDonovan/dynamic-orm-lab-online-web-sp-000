@@ -11,13 +11,24 @@ class InteractiveRecord
   def self.table_name
     self.to_s.pluralize.downcase
   end
+
+  def self.column_names
+    sql = "pragma table_info('#{tabel_name}')"
+  end
 end
 
-# attr_accessor :id, :name, :grade
-#
-# def self.column_names
-# end
-#
+def self.column_names
+
+    sql = "pragma table_info('#{table_name}')"
+
+    table_info = DB[:conn].execute(sql)
+    column_names = []
+    table_info.each do |row|
+      column_names << row["name"]
+    end
+    column_names.compact
+  end
+
 # def table_name_for_insert
 # end
 #
