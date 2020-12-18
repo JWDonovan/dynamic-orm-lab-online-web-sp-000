@@ -2,7 +2,11 @@ require_relative "../config/environment.rb"
 require 'active_support/inflector'
 
 class InteractiveRecord
-
+  def initialize(options = {})
+    options.each do |key, value|
+      self.send("#{key}=", value)
+    end
+  end
 end
 
 # attr_accessor :id, :name, :grade
